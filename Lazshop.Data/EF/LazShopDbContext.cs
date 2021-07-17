@@ -1,5 +1,6 @@
 ﻿using Lazshop.Data.Configurations;
 using Lazshop.Data.Entitites;
+using Lazshop.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,8 @@ namespace Lazshop.Data.EF
 			modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
 			modelBuilder.ApplyConfiguration(new PromotionConfiguration());
 			modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+
+			modelBuilder.Seed();
 		}
 
 		public DbSet<Product> Products { get; set; }
