@@ -1,4 +1,5 @@
-﻿using Lazshop.Data.Entitites;
+﻿using Lazshop.Data.Configurations;
+using Lazshop.Data.Entitites;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,24 @@ namespace Lazshop.Data.EF
 		public LazShopDbContext(DbContextOptions options) : base(options)
 		{
 
+		}
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.ApplyConfiguration(new CartConfiguration());
+
+			modelBuilder.ApplyConfiguration(new AppconfigConfiguration());
+			modelBuilder.ApplyConfiguration(new ProductConfiguration());
+			modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+			modelBuilder.ApplyConfiguration(new ProductIncategoryConfiguration());
+			modelBuilder.ApplyConfiguration(new OrderConfiguration());
+
+			modelBuilder.ApplyConfiguration(new OrderDetailConfiguration());
+			modelBuilder.ApplyConfiguration(new CategoryTranslationConfiguration());
+			modelBuilder.ApplyConfiguration(new ContactConfiguration());
+			modelBuilder.ApplyConfiguration(new LanguageConfiguration());
+			modelBuilder.ApplyConfiguration(new ProductTranslationConfiguration());
+			modelBuilder.ApplyConfiguration(new PromotionConfiguration());
+			modelBuilder.ApplyConfiguration(new TransactionConfiguration());
 		}
 
 		public DbSet<Product> Products { get; set; }

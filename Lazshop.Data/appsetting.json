@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "LazShopDatabase": "Server=THANHDAT-PC\\THANHDAT;Database=LazShopDatabase;Trusted_Connection=True;"
+  }
+}

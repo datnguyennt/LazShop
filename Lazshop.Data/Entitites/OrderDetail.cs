@@ -6,10 +6,6 @@ namespace Lazshop.Data.Entitites
 {
 	public class OrderDetail
 	{
-        
-
-        public List<OrderDetail> OrderDetails { get; set; }
-
         public int OrderId { set; get; }
         public int ProductId { set; get; }
         public int Quantity { set; get; }
