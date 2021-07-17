@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Lazshop.Data.Configurations
 {
-	class OrderConfiguration : IEntityTypeConfiguration<Order>
+	public class OrderConfiguration : IEntityTypeConfiguration<Order>
 	{
 		public void Configure(EntityTypeBuilder<Order> builder)
 		{
@@ -28,6 +28,9 @@ namespace Lazshop.Data.Configurations
 
 
 			builder.Property(x => x.ShipPhoneNumber).IsRequired().HasMaxLength(200);
+
+			builder.HasOne(x => x.AppUser).WithMany(x => x.Orders).HasForeignKey(x => x.UserId);
+
 		}
 	}
 }
